@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<style type="text/css">
+	table{
+		margin-top: 3%;
+		border-spacing: 20px;
+
+	}
+		
+			/* Full-width input fields */
+input[type=text], input[type=password]{
+    width: 90%;
+    padding: 12px 20px;
+    margin: 4px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 2%;
+    
+
+}
+input[type=button] {
+    width: 40%;
+    padding: 13px 20px;
+    margin: 5px 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color:  black;
+	margin-top:5%;
+	color : grey;
+}
+
+input:hover {
+    opacity: 0.7;
+}
+
+label{
+	font-family: "calibri";
+	font-size: 25px;
+}
+
+body{
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+
+ul {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    width: 400px;
+    float:right;
+}
+
+li a {
+    
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+	font-size:20px;
+	font-weight:bold;
+}
+
+li a:hover {
+    
+    color: white;
+}
+li{
+display: inline;
+}
+
+</style>
+
+<script src="js/pouchdb-7.0.0.min.js"></script>
+<script>
+ function check()
+ {
+   var a=document.getElementById("uname").value;
+   var b=document.getElementById("pass").value;
+   console.log(a);
+   console.log(b);
+   var db=new PouchDB('login');
+   var doc={
+   "_id":a,
+   "pass":b,
+  };
+ db.put(doc);
+ }
+
+</script>
+
+</head>
+<body background="comp.jpg">
+<div>
+<ul class="l1">
+<li><a href="index.html">Home</a></li>
+<li><a href="About_us.html">About</a></li>
+<li><a href="Login.html">Login</a></li>
+<li><a href="Registration.html">Sign Up</a></li>
+</ul>
+</div>
+<br>
+
+<form action="" method="GET">
+		<h1 align="center" style="margin-top:12%;">LOGIN FORM</h1>
+<table align="center">
+
+<tr>
+<td><label>Username:</label><br></td>
+
+<td><input type="text" name="user" placeholder="Enter Username" id="uname"></td>
+</tr>
+<tr>
+<td><label>Password:</label></td>
+<td><input type="password" name="pass" placeholder="Enter Password" id="pass"></td>
+</tr>
+<tr>
+<td align="center" colspan="2"><input type="button" value="Login" onclick="check();"></td>
+</tr>
+</table>
+
+</form>
+</body>
+</html>

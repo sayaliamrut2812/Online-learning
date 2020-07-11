@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="js/pouchdb-7.0.0.min.js"></script>
+<script>
+function check()
+{
+ var a=document.getElementById("t1").value;
+ console.log(a);
+
+var db=new PouchDB('form');
+/*db.get('22',function(err,doc){
+ if(err)
+ {
+  return console.log(err);
+ }
+ else
+ {
+  console.log(doc);
+ }
+ }
+ );
+ console.log('done');
+ */
+  var doc={
+   "_id":a
+  };
+ db.put(doc);
+ console.log('put done');
+}
+</script>
+</head>
+<body>
+<form>
+<input type="text" id="t1"><br><br>
+<input type="button" value="submit" onclick="check();">
+</form>
+</body>
+</html>

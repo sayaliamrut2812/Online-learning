@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<style type="text/css">
+	table{
+		
+		
+		margin-top: 3%;
+		border-spacing: 20px;
+
+	}
+		
+			/* Full-width input fields */
+input[type=text], input[type=password],input[type=email]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 2%;
+
+
+}
+input[type=button] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 4px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 2%;
+    background-color: black;
+	color:grey;
+}
+
+input:hover {
+    opacity: 0.7;
+}
+
+label{
+	font-family: "calibri";
+	font-size: 25px;
+}
+h1{
+	align-content: center;
+	
+}
+
+body{
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:fixed;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    float:right;
+}
+
+li a {
+    
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+	font-size:20px;
+	font-weight:bold;
+}
+
+li a:hover {
+    
+    color: white;
+}
+li{
+display: inline;
+}
+		
+	</style>
+	<script>
+	function validateForm() {
+  var x = document.forms["myForm"]["name"].value;
+  var x = document.forms["myForm"]["email"].value;
+  var x = document.forms["myForm"]["cont"].value;
+  var x = document.forms["myForm"]["user"].value;
+  var x = document.forms["myForm"]["pass"].value;
+  var x = document.forms["myForm"]["confirm"].value;
+
+
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }}
+  
+	</script>
+	
+	<script src="js/pouchdb-7.0.0.min.js"></script>
+<script>
+ function check()
+ {
+   var a=document.getElementById("name").value;
+   var b=document.getElementById("email").value;
+   var c=document.getElementById("cont").value;
+   var d=document.getElementById("user").value;
+   var e=document.getElementById("pass").value;
+   var f=document.getElementById("confirm").value;
+
+   
+   console.log(a);
+   console.log(b);
+   console.log(c);
+   console.log(d);
+   console.log(e);
+   console.log(f);
+   var db=new PouchDB('register');
+   var doc={
+   "_id":a,
+   "aemail":b,
+   "bcont":c,
+   "cuser":d,
+   "dpass":e,
+   "econfirm":f
+   
+  };
+ db.put(doc);
+ }
+
+</script>
+
+</head>
+<body background="comp.jpg">
+<div class="div1">
+<ul class="l1">
+<li><a href="index.html">Home</a></li>
+<li><a href="About_us.html">About</a></li>
+<li><a href="Login.html">Login</a></li>
+<li><a href="Registration.html">Sign Up</a></li>
+</ul>
+</div>
+<br><br>
+
+<div>
+	<form action="" method="GET" name="myForm">
+		<h1 align="center">REGISTRATION FORM</h1>
+<table align="center">
+<tr>	
+	<td><label> Name :</label></td>
+<td><input type="text" name="name" placeholder="Enter Name" id="name"></td>
+</tr>
+<tr>
+<td><label>E-mail:</label></td>
+<td><input type="email" pattern="[^ @]*@[^ @]*" name="email" placeholder="Enter E-mail" id="email"></td>
+</tr>
+<tr>
+<td><label>Contact:</label></td>
+<td><input type="text" name="cont" placeholder="Enter Contact" id="cont" maxlength="10"></td>
+</tr>
+<tr>
+<td><label>Username:</label><br></td>
+
+<td><input type="text" name="user" placeholder="Enter Username" id="user"></td>
+</tr>
+<tr>
+<td><label>Password:</label></td>
+<td><input type="password" name="pass" placeholder="Enter Password" id="pass"></td>
+</tr>
+<tr>
+<td><label>Confirm Password:</label></td>
+<td><input type="password" name="confirm" placeholder="Enter Password Again" id="confirm"></td>
+</tr>
+<tr>
+<td align="center" colspan="2"><input type="button"  value="Register" onclick="check(); validateForm();"></td>
+</tr>
+</table>
+</div>
+
+</form>
+</body>
+</html>
